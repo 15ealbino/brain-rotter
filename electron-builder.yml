@@ -1,0 +1,83 @@
+appId: com.brainrotter.app
+productName: Brain Rotter
+copyright: Copyright © 2026 Brain Rotter contributors
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - out/**
+  - package.json
+  - '!**/*.map'
+
+# ffmpeg-static ships a native executable that cannot be run from inside the asar
+# archive, so it has to be unpacked next to it.
+asarUnpack:
+  - '**/node_modules/ffmpeg-static/**'
+
+# Anything placed in ./resources is copied verbatim into the app's resources dir.
+# Drop a whisper.cpp build into resources/whisper/ before packaging if you want to
+# ship one; the app auto-detects it there. Nothing is vendored by default.
+extraResources:
+  - from: resources
+    to: .
+    filter:
+      - '**/*'
+
+npmRebuild: false
+
+linux:
+  target:
+    - AppImage
+    - deb
+  category: AudioVideo
+  synopsis: Local meeting recorder with offline transcription and brain-rot panels
+  description: >-
+    Records a conference call's audio locally, transcribes it on-device with
+    whisper.cpp, and plays it back with a synced transcript beside original
+    stimulation panels. No cloud services, no telemetry, no third-party content.
+  maintainer: 15ealbino <15ealbino@users.noreply.github.com>
+  desktop:
+    entry:
+      Name: Brain Rotter
+      Comment: Local meeting recorder, transcript and brain-rot panels
+      Categories: AudioVideo;Audio;Recorder;
+
+deb:
+  # PipeWire (via xdg-desktop-portal) is what makes system-audio capture possible
+  # on modern Linux desktops. Listed as a recommendation so the package still
+  # installs on X11-only systems, where the app falls back to microphone-only.
+  recommends:
+    - xdg-desktop-portal
+    - pipewire
+  depends:
+    - libgtk-3-0
+    - libnotify4
+    - libnss3
+    - libxss1
+    - libxtst6
+    - xdg-utils
+    - libatspi2.0-0
+    - libdrm2
+    - libgbm1
+    - libxcb-dri3-0
+
+appImage:
+  artifactName: ${productName}-${version}-${arch}.AppImage
+
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: ${productName}-Setup-${version}.${ext}
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: Brain Rotter
+  deleteAppDataOnUninstall: false

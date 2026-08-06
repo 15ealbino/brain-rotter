@@ -1,0 +1,53 @@
+# dependencies
+node_modules/
+.npm/
+
+# build output
+out/
+dist/
+release/
+build/icons/*.icns
+*.tsbuildinfo
+
+# electron-builder / packaging artifacts
+*.AppImage
+*.deb
+*.rpm
+*.exe
+*.snap
+*.blockmap
+*.zip
+
+# whisper.cpp models (downloaded at runtime, hundreds of MB)
+models/
+*.bin
+*.gguf
+*.ggml
+
+# recorded audio / transcripts — never commit meeting content
+recordings/
+*.webm
+*.wav
+*.mp3
+*.m4a
+transcript.json
+
+# local vendored whisper.cpp binaries
+resources/whisper/*
+!resources/whisper/README.txt
+vendor/
+
+# logs & editor cruft
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.env
+.env.*
+!.env.example
+
+# claude code local settings
+.claude/settings.local.json

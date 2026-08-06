@@ -1,0 +1,58 @@
+{
+  "name": "brain-rotter",
+  "version": "0.1.0",
+  "description": "Record work conference calls, transcribe them locally with whisper.cpp, and play them back with a synced transcript next to original brain-rot stimulation panels.",
+  "main": "./out/main/index.js",
+  "author": "15ealbino",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://github.com/15ealbino/brain-rotter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/15ealbino/brain-rotter.git"
+  },
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "scripts": {
+    "dev": "electron-vite dev",
+    "start": "electron-vite preview",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"*.{json,md,yml}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
+    "build": "npm run typecheck && electron-vite build",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:linux": "npm run build && electron-builder --linux",
+    "build:win": "npm run build && electron-builder --win",
+    "build:all": "npm run build && electron-builder --linux --win"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.0",
+    "@types/node": "^20.19.9",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.0.4",
+    "electron": "^43.3.0",
+    "electron-builder": "^26.0.12",
+    "electron-vite": "^4.0.1",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "globals": "^17.9.0",
+    "prettier": "^3.6.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.1",
+    "vite": "^6.3.6"
+  }
+}

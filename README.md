@@ -197,7 +197,6 @@ Security: `contextIsolation: true`, `nodeIntegration: false`, no remote module. 
 ## Known gaps
 
 - Not yet verified end-to-end against a real conference call. Treat the capture path as unproven.
-- The display-media handler was mid-revision when work paused; two suspected bugs in it are unconfirmed and unfixed.
 - No automated tests.
 - No whisper.cpp binary is vendored into the packaged builds, so a fresh install requires the manual whisper setup above.
 - Windows installer has been configured but never actually built or run.

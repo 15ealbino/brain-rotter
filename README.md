@@ -194,12 +194,21 @@ src/
 
 Security: `contextIsolation: true`, `nodeIntegration: false`, no remote module. The renderer reaches the main process only through typed IPC channels declared in `src/shared/`.
 
+## Recording Teams meetings with a bot instead
+
+Desktop-audio capture works, but it depends on your OS cooperating and it records whatever is coming out of your speakers. For Microsoft Teams there is a cleaner option: **[`teams-bot/`](teams-bot/)** is a C#/.NET Teams meeting-recording bot that you invite to a meeting. It joins as a visible participant, tells Teams it is recording (so Teams shows its own recording notification), announces itself in the meeting chat, and captures the meeting audio server-side as a 16 kHz mono WAV — then writes it straight into this app's recordings library, where it shows up in the Library and transcribes through the same local whisper.cpp path.
+
+It never hides, never joins a meeting it was not added to, and never persists a byte of audio before Graph's `updateRecordingStatus` API has returned success.
+
+The catch is hosting: application-hosted media bots need an x64 **Windows Server** host with a public IP, a real DNS name, a valid TLS certificate, and a wide TCP port range open for media — a tunnel can front the signalling endpoint but cannot carry the media. See **[teams-bot/README.md](teams-bot/README.md)** for the full picture, including the honest version of what happens when the bot and this app are on different machines.
+
 ## Known gaps
 
 - Not yet verified end-to-end against a real conference call. Treat the capture path as unproven.
 - No automated tests.
 - No whisper.cpp binary is vendored into the packaged builds, so a fresh install requires the manual whisper setup above.
 - Windows installer has been configured but never actually built or run.
+- The `teams-bot/` component compiles clean but its media layer has never captured audio from a real Teams meeting — see its own [status note](teams-bot/README.md#build-status).
 
 ## License
 

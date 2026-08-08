@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.19/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.19",
+  "version": "1.0.0",
+  "id": "REPLACE-WITH-TEAMS-APP-GUID",
+  "packageName": "com.brainrotter.teamsrecorder",
+  "developer": {
+    "name": "Brain Rotter",
+    "websiteUrl": "https://github.com/15ealbino/brain-rotter",
+    "privacyUrl": "https://github.com/15ealbino/brain-rotter/blob/main/teams-bot/README.md#privacy-consent-and-the-law",
+    "termsOfUseUrl": "https://github.com/15ealbino/brain-rotter/blob/main/teams-bot/README.md#privacy-consent-and-the-law"
+  },
+  "name": {
+    "short": "Brain Rotter Recorder",
+    "full": "Brain Rotter meeting recorder"
+  },
+  "description": {
+    "short": "Records meeting audio you invite it to, for a local transcript.",
+    "full": "Add this app to a Teams meeting and it joins as a visible participant and records the meeting audio. Teams shows its standard recording notification, and the app also posts a message in the meeting chat when recording starts and when it stops. Audio is written to the Brain Rotter desktop app's library and transcribed locally with whisper.cpp; nothing is uploaded to a third-party transcription service. The app only ever joins meetings it is explicitly added to."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#1E2028",
+  "bots": [
+    {
+      "botId": "REPLACE-WITH-ENTRA-APP-ID",
+      "scopes": ["personal", "team", "groupChat"],
+      "isNotificationOnly": false,
+      "supportsFiles": false,
+      "supportsCalling": true,
+      "supportsVideo": false
+    }
+  ],
+  "permissions": ["identity"],
+  "validDomains": ["REPLACE-WITH-BOT-HOSTNAME"],
+  "webApplicationInfo": {
+    "id": "REPLACE-WITH-ENTRA-APP-ID",
+    "resource": "https://RscBasedStoreApp"
+  },
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "Calls.JoinGroupCalls.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "Calls.AccessMedia.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "OnlineMeeting.ReadBasic.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "OnlineMeetingParticipant.Read.Chat",
+          "type": "Application"
+        }
+      ]
+    }
+  }
+}

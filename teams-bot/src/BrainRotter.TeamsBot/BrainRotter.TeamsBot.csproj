@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BrainRotter.TeamsBot</RootNamespace>
+    <AssemblyName>BrainRotter.TeamsBot</AssemblyName>
+
+    <!--
+      The Real-time Media Platform (Microsoft.Skype.Bots.Media) ships x64-only native
+      libraries. The managed assemblies restore and compile on any platform, but the
+      process must run as x64 on Windows Server. See ../../README.md > Deployment reality.
+    -->
+    <Platforms>x64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
+
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <UserSecretsId>brain-rotter-teams-bot</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      Microsoft states that application-hosted media bots must use a version of
+      Calls.Media that is no more than three months old; older builds are deprecated
+      server-side and stop working. Re-pin this on a schedule.
+      https://learn.microsoft.com/microsoftteams/platform/bots/calls-and-meetings/requirements-considerations-application-hosted-media-bots
+    -->
+    <PackageReference Include="Microsoft.Graph.Communications.Calls.Media" Version="1.2.0.17950" />
+    <PackageReference Include="Microsoft.Skype.Bots.Media" Version="1.31.0.225-preview" />
+    <!--
+      Referenced explicitly because we validate inbound notification tokens ourselves. Pinned to
+      the same versions the Communications SDK pulls in transitively; a lower version trips NU1605.
+    -->
+    <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.16.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.16.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

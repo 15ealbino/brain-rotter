@@ -37,6 +37,20 @@ resources/whisper/*
 !resources/whisper/README.txt
 vendor/
 
+# .NET build output (teams-bot/)
+teams-bot/**/bin/
+teams-bot/**/obj/
+*.user
+*.suo
+teams-bot/dist/
+teams-bot/**/appsettings.Development.json
+teams-bot/**/appsettings.Production.json
+teams-bot/**/appsettings.Local.json
+teams-bot/**/*.pfx
+teams-bot/**/*.cer
+teams-bot/**/*.pem
+teams-bot/**/*.key
+
 # logs & editor cruft
 *.log
 npm-debug.log*

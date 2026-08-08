@@ -1,0 +1,52 @@
+{
+  "_comment": [
+    "Copy to appsettings.Development.json (gitignored) for local work.",
+    "Put NO SECRETS here even in the gitignored copy - use `dotnet user-secrets set Bot:AppSecret ...`.",
+    "This file is for the non-secret knobs you want different locally."
+  ],
+
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "BrainRotter.TeamsBot": "Debug",
+      "Microsoft.AspNetCore": "Information"
+    }
+  },
+
+  "Kestrel": {
+    "Endpoints": {
+      "Https": {
+        "Url": "https://localhost:9441"
+      }
+    }
+  },
+
+  "Bot": {
+    "_comment": "AppId/TenantId are not secret; the secret goes in user-secrets.",
+    "AppId": "00000000-0000-0000-0000-000000000000",
+    "TenantId": "00000000-0000-0000-0000-000000000000",
+
+    "_botBaseUrl": "A tunnel works for SIGNALLING only. Media will not flow through it.",
+    "BotBaseUrl": "https://your-tunnel-subdomain.devtunnels.ms",
+
+    "_allowStartWithoutMediaPlatform": [
+      "true lets the service start on Linux/macOS, or on Windows without a certificate, so you",
+      "can exercise the HTTP surface and the brain-rotter sink. /api/join returns 503 and NO",
+      "meeting can be recorded. Recording requires x64 Windows Server - see README > Deployment reality."
+    ],
+    "AllowStartWithoutMediaPlatform": true,
+
+    "MediaServiceFqdn": "",
+    "CertificateThumbprint": "",
+
+    "LobbyTimeoutSeconds": 120,
+    "MaxCallDurationMinutes": 60
+  },
+
+  "BrainRotter": {
+    "_comment": "Point at a scratch folder so local testing never touches your real library.",
+    "StorageRoot": "",
+    "UserDataDir": "",
+    "WriteSpeakerAttribution": true
+  }
+}

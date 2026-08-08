@@ -5,7 +5,7 @@ import { formatBytes } from '../lib/format'
 import { useAppState } from '../state/AppState'
 import { PANEL_LABELS } from '../components/panels/registry'
 
-const PANEL_IDS: BrainRotPanelId[] = ['video', 'flappy', 'webview', 'runner']
+const PANEL_IDS: BrainRotPanelId[] = ['video', 'flappy', 'webview', 'runner', 'smash']
 
 export function SettingsScreen(): React.JSX.Element {
   const { settings, saveSettings, whisper, models, modelProgress, refreshWhisper, reportError, pushToast } =

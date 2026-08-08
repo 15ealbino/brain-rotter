@@ -4,14 +4,16 @@ export const PANEL_LABELS: Record<BrainRotPanelId, string> = {
   video: 'Your clips',
   flappy: 'Flap Rot',
   webview: 'Web panel',
-  runner: 'Lane Rot'
+  runner: 'Lane Rot',
+  smash: 'Smash Rot'
 }
 
 export const PANEL_BLURBS: Record<BrainRotPanelId, string> = {
   video: 'Shuffle-plays muted clips from a folder you choose.',
   flappy: 'Original flap-through-the-gaps game, drawn from scratch.',
   webview: 'Renders one URL you paste in Settings. Nothing is scraped.',
-  runner: 'Original three-lane endless runner, drawn from scratch.'
+  runner: 'Original three-lane endless runner, drawn from scratch.',
+  smash: 'Original drive-and-demolish game, drawn from scratch.'
 }
 
-export const PANEL_ORDER: BrainRotPanelId[] = ['video', 'flappy', 'webview', 'runner']
+export const PANEL_ORDER: BrainRotPanelId[] = ['video', 'flappy', 'webview', 'runner', 'smash']

@@ -56,7 +56,7 @@ export interface WhisperModelInfo {
   downloaded: boolean
 }
 
-export type BrainRotPanelId = 'video' | 'flappy' | 'webview' | 'runner'
+export type BrainRotPanelId = 'video' | 'flappy' | 'webview' | 'runner' | 'smash'
 
 export interface AppSettings {
   /** Folder of user-supplied .mp4/.webm clips for the video panel. Empty = unset. */
@@ -79,6 +79,7 @@ export interface AppSettings {
 export interface HighScores {
   flappy: number
   runner: number
+  smash: number
 }
 
 /** A capturable screen/window offered by `desktopCapturer`. */

@@ -8,6 +8,7 @@ import { VideoPanel } from './panels/VideoPanel'
 import { FlappyPanel } from './panels/FlappyPanel'
 import { WebviewPanel } from './panels/WebviewPanel'
 import { RunnerPanel } from './panels/RunnerPanel'
+import { SmashPanel } from './panels/SmashPanel'
 
 function renderPanel(id: BrainRotPanelId): React.JSX.Element {
   switch (id) {
@@ -19,6 +20,8 @@ function renderPanel(id: BrainRotPanelId): React.JSX.Element {
       return <WebviewPanel />
     case 'runner':
       return <RunnerPanel />
+    case 'smash':
+      return <SmashPanel />
     default:
       return <div className="panel-empty muted">Unknown panel.</div>
   }

@@ -4,7 +4,7 @@ import { promises as fs } from 'node:fs'
 import type { AppSettings, BrainRotPanelId, HighScores, WhisperModelId } from '@shared/types'
 import { JsonStore } from './jsonStore'
 
-const VALID_PANELS: BrainRotPanelId[] = ['video', 'flappy', 'webview', 'runner']
+const VALID_PANELS: BrainRotPanelId[] = ['video', 'flappy', 'webview', 'runner', 'smash']
 const VALID_MODELS: WhisperModelId[] = ['tiny.en', 'base.en', 'small.en', 'medium.en']
 
 export const DEFAULT_SETTINGS: AppSettings = {
@@ -18,7 +18,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   brainRotSplitRatio: 0.5
 }
 
-const DEFAULT_SCORES: HighScores = { flappy: 0, runner: 0 }
+const DEFAULT_SCORES: HighScores = { flappy: 0, runner: 0, smash: 0 }
 
 let settingsStore: JsonStore<AppSettings> | null = null
 let scoresStore: JsonStore<HighScores> | null = null
@@ -58,7 +58,8 @@ export function getScoresStore(): JsonStore<HighScores> {
     const r = (raw ?? {}) as Partial<HighScores>
     return {
       flappy: Math.max(0, Math.floor(Number(r.flappy) || 0)),
-      runner: Math.max(0, Math.floor(Number(r.runner) || 0))
+      runner: Math.max(0, Math.floor(Number(r.runner) || 0)),
+      smash: Math.max(0, Math.floor(Number(r.smash) || 0))
     }
   })
   return scoresStore

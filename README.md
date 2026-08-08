@@ -17,7 +17,7 @@ Everything runs on your machine. Meeting audio is never uploaded anywhere — tr
 ```
 ┌──────────────────────────────┬──────────────────────────────┐
 │  TRANSCRIPT                  │  BRAIN ROT                   │
-│                              │  [video][flappy][web][run]   │
+│                              │ [vid][flap][web][run][smash] │
 │  ▸ play / pause / seek       │                              │
 │  ▸ speed control             │   ┌────────────────────┐     │
 │                              │   │                    │     │
@@ -35,7 +35,7 @@ The segment under the playhead highlights and auto-scrolls into view. Click any 
 
 **Library** — past recordings with date, duration and transcription status.
 
-### The four brain-rot panels
+### The five brain-rot panels
 
 | Panel | What it is |
 |---|---|
@@ -43,12 +43,13 @@ The segment under the playhead highlights and auto-scrolls into view. Click any 
 | **Flappy** | An original side-scrolling bird game on `<canvas>`. Click or space to flap. High score persists. |
 | **Web** | An embedded view of any URL you paste into Settings. |
 | **Runner** | An original 3-lane endless runner. Arrow keys to switch lane, jump and duck. Speed ramps up. High score persists. |
+| **Smash** | An original drive-and-demolish game. Steer down a roadway flattening crates, barrels, cones, tyres and signs for combo points; the concrete blocks wreck you instead. Arrows/A-D to steer, hold space to boost. High score persists. |
 
 ## A note on content and copyright
 
 The original brief asked for Subway Surfers and TikTok. Those are copyrighted, and both platforms' terms forbid programmatic scraping — so this app ships neither, and never downloads or scrapes third-party content.
 
-Instead: the two games are written from scratch with procedurally generated visuals, borrowing the *genre* and nothing else — no sprites, assets, audio, code or branding from the originals. The video and web panels are empty vessels that play only what you point them at: your own local files, your own pasted links. Whatever you put there is between you and the rights holder.
+Instead: the three games are written from scratch with procedurally generated visuals, borrowing the *genre* and nothing else — no sprites, assets, audio, code or branding from the originals. The video and web panels are empty vessels that play only what you point them at: your own local files, your own pasted links. Whatever you put there is between you and the rights holder.
 
 ## Prerequisites
 
